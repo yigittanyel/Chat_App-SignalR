@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Scripts{
+    <script src="~/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <script>
+        $(document).ready(function () {
+        const connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:7256/MyHub").build();
+
+        connection.start().then(() => {
+            $("#saveButton").click(event => {
+                const message = $("#messageInput").val();
+                const user = $("#userInput").val();
+                    connection.invoke("SendMessage", user,message).catch(err => console.error(err.toString()));
+                event.preventDefault();
+            });
+        });
+
+            connection.on("ReceiveMessage", (user, message) => {
+                const li = document.createElement("li");
+                li.textContent = user + " says: " + message;
+                document.getElementById("messagesList").appendChild(li);
+            });
+        });
+    </script>
+}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-2">
+                <form>
+                    <div class="form-group">
+                        <label for="userInput">User</label>
+                        <input type="text" class="form-control" id="userInput" />
+                    </div>
+                    <div class="form-group">
+                        <label for="messageInput">Message</label>
+                        <input type="text" class="form-control" id="messageInput" />
+                    </div><br />
+                    <button type="submit" class="btn btn-primary" id="saveButton">Save</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <ul id="messagesList"></ul>
+            </div>
+        </div>
+    </div>

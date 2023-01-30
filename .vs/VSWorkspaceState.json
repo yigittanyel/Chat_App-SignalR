@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\SignalRProject.Client",
+    "\\SignalRProject.Client\\Views",
+    "\\SignalRProject.Client\\Views\\Home",
+    "\\SignalRProject.Client\\Views\\Shared",
+    "\\SignalRProject.Server",
+    "\\SignalRProject.Server\\Hubs"
+  ],
+  "SelectedNode": "\\SignalRProject.Client\\Views\\Home\\Index.cshtml",
+  "PreviewInSolutionExplorer": false
+}
