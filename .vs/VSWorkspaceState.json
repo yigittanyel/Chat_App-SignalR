@@ -6,8 +6,10 @@
     "\\SignalRProject.Client\\Views\\Home",
     "\\SignalRProject.Client\\Views\\Shared",
     "\\SignalRProject.Server",
-    "\\SignalRProject.Server\\Hubs"
+    "\\SignalRProject.Server\\BackgroundServices",
+    "\\SignalRProject.Server\\Hubs",
+    "\\SignalRProject.Server\\Properties"
   ],
-  "SelectedNode": "\\SignalRProject.Client\\Views\\Home\\Index.cshtml",
+  "SelectedNode": "\\SignalRProject.Server\\BackgroundServices\\DatetimeLogWriter.cs",
   "PreviewInSolutionExplorer": false
 }

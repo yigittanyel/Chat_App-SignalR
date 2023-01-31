@@ -1,4 +1,5 @@
 using SignalRProject.Hubs;
+using SignalRProject.Server.BackgroundServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,9 +10,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
-
 #region --
+
+builder.Services.AddHostedService<DatetimeLogWriter>();
+
 builder.Services.AddSignalR();
 builder.Services.AddCors();
 #endregion
